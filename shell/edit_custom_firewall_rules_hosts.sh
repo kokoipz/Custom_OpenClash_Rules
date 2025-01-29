@@ -7,6 +7,7 @@ TARGET_FILE="/etc/openclash/custom/openclash_custom_firewall_rules.sh"
 INSERT_CONTENT=$(cat << EOF
 # ==============以下是广告过滤规则拉取脚本=================
 # 以下是 GitHub520 加速规则拉取脚本
+# 以下是 GitHub520 加速规则拉取脚本
 LOG_OUT "拉取GitHub520加速规则…"
 sed -i '/# GitHub520 Host Start/,/# GitHub520 Host End/d' /etc/hosts
 curl https://raw.hellogithub.com/hosts >> /etc/hosts
