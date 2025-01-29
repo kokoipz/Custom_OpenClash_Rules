@@ -10,7 +10,8 @@ INSERT_CONTENT=$(cat << EOF
 # 以下是 GitHub520 加速规则拉取脚本
 LOG_OUT "拉取GitHub520加速规则…"
 sed -i '/# GitHub520 Host Start/,/# GitHub520 Host End/d' /etc/hosts
-curl https://raw.hellogithub.com/hosts >> /etc/hosts
+curl https://raw.hellogithub.com/hosts | \
+    sed '/127.0.0.1 localhost/d; /::1 localhost/d; 1s/^/# GitHub520 Host Start\n/; $s/$/\n# GitHub520 Host End/' >> /etc/hosts
 sed -i '/^$/d' /etc/hosts
 sed -i '/!/d' /etc/hosts
 # GitHub520 加速规则拉取脚本结束
