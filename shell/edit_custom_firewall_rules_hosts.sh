@@ -6,6 +6,16 @@ TARGET_FILE="/etc/openclash/custom/openclash_custom_firewall_rules.sh"
 # 要插入的内容
 INSERT_CONTENT=$(cat << EOF
 # ==============以下是广告过滤规则拉取脚本=================
+# 以下是 GitHub520 加速规则拉取脚本
+LOG_OUT "拉取GitHub520加速规则…"
+sed -i '/# GitHub520 Host Start/,/# GitHub520 Host End/d' /etc/hosts
+curl https://raw.hellogithub.com/hosts >> /etc/hosts
+sed -i '/^$/d' /etc/hosts
+sed -i '/!/d' /etc/hosts
+# GitHub520 加速规则拉取脚本结束
+# 清理 DNS 缓存
+LOG_OUT "清理 DNS 缓存…"
+/etc/init.d/dnsmasq reload
 # 以下是广告过滤规则拉取脚本
 LOG_OUT "拉取秋风广告过滤规则…"
 sed -i '/# AWAvenue-Ads-Rule Start/,/# AWAvenue-Ads-Rule End/d' /etc/hosts
@@ -14,16 +24,6 @@ curl https://github.boki.moe/https://raw.githubusercontent.com/TG-Twilight/AWAve
 sed -i '/^$/d' /etc/hosts
 sed -i '/!/d' /etc/hosts
 # 广告过滤规则拉取脚本结束
-# 清理 DNS 缓存
-LOG_OUT "清理 DNS 缓存…"
-/etc/init.d/dnsmasq reload
-# 以下是 GitHub520 加速规则拉取脚本
-LOG_OUT "拉取GitHub520加速规则…"
-sed -i '/# GitHub520 Host Start/,/# GitHub520 Host End/d' /etc/hosts
-curl https://raw.hellogithub.com/hosts >> /etc/hosts
-sed -i '/^$/d' /etc/hosts
-sed -i '/!/d' /etc/hosts
-# GitHub520 加速规则拉取脚本结束
 # 清理 DNS 缓存
 LOG_OUT "清理 DNS 缓存…"
 /etc/init.d/dnsmasq reload
