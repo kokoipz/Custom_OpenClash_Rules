@@ -6,12 +6,10 @@ TARGET_FILE="/etc/openclash/custom/openclash_custom_firewall_rules.sh"
 # 要插入的内容
 INSERT_CONTENT=$(cat << EOF
 # ==============以下是广告过滤规则拉取脚本=================
+# 以下是 GitHub520 加速规则拉取脚本
 LOG_OUT "拉取GitHub520加速规则…"
-# 删除之前的 GitHub520 加速规则
 sed -i '/# GitHub520 Host Start/,/# GitHub520 Host End/d' /etc/hosts
-# 拉取 GitHub520 加速规则并追加到 /etc/hosts
 curl https://raw.hellogithub.com/hosts >> /etc/hosts
-# 清理 /etc/hosts 中的空行和无效行
 sed -i '/^$/d' /etc/hosts
 sed -i '/!/d' /etc/hosts
 # GitHub520 加速规则拉取脚本结束
@@ -20,13 +18,9 @@ LOG_OUT "清理 DNS 缓存…"
 /etc/init.d/dnsmasq reload
 # 以下是广告过滤规则拉取脚本
 LOG_OUT "拉取秋风广告过滤规则…"
-# 删除之前的广告过滤规则
 sed -i '/# AWAvenue-Ads-Rule Start/,/# AWAvenue-Ads-Rule End/d' /etc/hosts
-# 拉取秋风广告过滤规则并追加到 /etc/hosts
-curl https://ghkkz.440222.xyz/https://raw.githubusercontent.com/TG-Twilight/AWAvenue-Ads-Rule/main/Filters/AWAvenue-Ads-Rule-hosts.txt | \
-    sed '/127.0.0.1 localhost/d; /::1 localhost/d; 1s/^/# AWAvenue-Ads-Rule Start\n/; $s/$/\n# AWAvenue-Ads-Rule End/' | \
-    tee -a /etc/hosts > /dev/null
-# 清理 /etc/hosts 中的空行和无效行
+curl https://github.boki.moe/https://raw.githubusercontent.com/TG-Twilight/AWAvenue-Ads-Rule/main/Filters/AWAvenue-Ads-Rule-hosts.txt | \
+    sed '/127.0.0.1 localhost/d; /::1 localhost/d; 1s/^/# AWAvenue-Ads-Rule Start\n/; $s/$/\n# AWAvenue-Ads-Rule End/' >> /etc/hosts
 sed -i '/^$/d' /etc/hosts
 sed -i '/!/d' /etc/hosts
 # 广告过滤规则拉取脚本结束
