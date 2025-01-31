@@ -20,4 +20,3 @@ sed -i '/!/d' /etc/hosts
 # 清理 DNS 缓存
 echo "清理 DNS 缓存…"
 /etc/init.d/dnsmasq reload
-/etc/init.d/dnsmasq restart
