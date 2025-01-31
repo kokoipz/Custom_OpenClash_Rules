@@ -16,3 +16,4 @@ sed -i '/!/d' /etc/hosts
 # 清理 DNS 缓存，v0.46.043 之前版本无需此步骤
 echo "清理 DNS 缓存…"
 /etc/init.d/dnsmasq reload
+/etc/init.d/dnsmasq restart
