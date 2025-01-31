@@ -115,7 +115,7 @@ IP-CIDR,104.75.169.19/32,no-resolve
 
 # Steam - 游戏下载/社区实况直播(非中国下载区) - Valve
 # 正则匹配可能有误，出现问题请及时反馈
-#DOMAIN-SUFFIX^cache\d(\d)?-[a-z][a-z][a-z]\d\.steamcontent\.com$
+#DOMAIN-SUFFIX,^cache\d(\d)?-[a-z][a-z][a-z]\d\.steamcontent\.com$
 
 # Steam - 游戏下载(非中国下载区) - akamai
 DOMAIN-SUFFIX,steampipe.akamaized.net
