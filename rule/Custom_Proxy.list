@@ -22,12 +22,3 @@ DOMAIN-SUFFIX,dmhy.org
 DOMAIN-SUFFIX,mtalk.google.com
 # EA Desktop 云同步
 DOMAIN-SUFFIX,cloudsync-prod.s3.us-east-1.amazonaws.com
-# Xbox
-- DOMAIN-SUFFIX,xbox360.com,Xbox
-- DOMAIN-SUFFIX,gamepass.com,Xbox
-- DOMAIN-SUFFIX,xbox.com,Xbox
-- DOMAIN-SUFFIX,xboxab.com,Xbox
-- DOMAIN-SUFFIX,xboxab.net,Xbox
-- DOMAIN-SUFFIX,xboxlive.com,Xbox
-- DOMAIN-SUFFIX,xboxservices.com,Xbox
-- DOMAIN-KEYWORD,xbox,Xbox
